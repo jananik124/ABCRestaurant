@@ -30,8 +30,9 @@
 		}
 		
 		header .logo img {
-		    width: 150px;
+		    width: 75px;
 		    height: auto;
+		    margin-bottom:5px;
 		}
 		
 		header nav {
@@ -168,15 +169,16 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">ABC Restaurant</div>
+            <div class="logo"><img src="Images/Logo.png" alt="ABC Restaurant"></div>
+             
             <nav>
                 <a href="index.jsp">Home</a>
                 <a href="Services.jsp">Services</a>
-                <a href="offers.jsp">Offers</a>
-                <a href="contact.jsp">Contact</a>
+                <a href="Offers.jsp">Offers</a>
+                <a href="Contact.jsp">Contact</a>
                 <a href="Menu.jsp">Menu</a>
-                <a href="reservation.jsp">Reservation</a>
-                <a href="gallery.jsp">Gallery</a>
+                <a href="Reservation.jsp">Reservation</a>
+                <a href="Gallery.jsp">Gallery</a>
                 
             </nav>
             
@@ -192,6 +194,7 @@
         <div class="container">
             <h1>Welcome to ABC Restaurant</h1>
             <p>Enjoy the finest dining experience with us!</p>
+           
              
         </div>
     </section>

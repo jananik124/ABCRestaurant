@@ -149,7 +149,7 @@
 
         <section class="contact-form">
             <h3>Send Us a Message</h3>
-            <form action="submit_form.jsp" method="post">
+            <form action="Contact.jsp" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
