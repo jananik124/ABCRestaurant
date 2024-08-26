@@ -94,7 +94,7 @@
                 <a href="NewFile.jsp">Services</a>
                 <a href="offers.jsp">Offers</a>
                 <a href="contact.jsp">Contact</a>
-                <a href="Menu.jsp">Menu</a>
+                <a href="Menu.jsp">Order</a>
                 <a href="reservation.jsp">Reservation</a>
                 <a href="gallery.jsp">Gallery</a>
             </nav>

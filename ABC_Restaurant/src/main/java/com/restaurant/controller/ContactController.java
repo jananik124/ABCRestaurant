@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/contacts")
+@WebServlet("/Contact")
 public class ContactController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -24,28 +24,29 @@ public class ContactController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<ContactMODEL> contacts = contactDAO.getAllContacts();
-        request.setAttribute("contacts", contacts);
-        request.getRequestDispatcher("/Contact.jsp").forward(request, response);
+        //List<ContactMODEL> contacts = contactDAO.getAllContacts();
+        //request.setAttribute("contacts", contacts); // Changed "Contacts.jsp" to "contacts"
+        request.getRequestDispatcher("Contact.jsp").forward(request, response);
     }
-    
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String message = request.getParameter("message");
 
-        // Debug: Print form data
+        //Debug: Print form data
         System.out.println("Received contact form submission:");
         System.out.println("Name: " + name);
         System.out.println("Email: " + email);
         System.out.println("Message: " + message);
 
         ContactMODEL contact = new ContactMODEL(name, email, message);
-        contactDAO.addContact(contact);
+       // contactDAO.addContact(contact);
 
-        response.sendRedirect("contact_success.jsp");
+        // You can use redirect if you don't need to forward any data, otherwise use forward
+        response.sendRedirect("Contact.jsp"); 
+        request.getRequestDispatcher("Contact.jsp").forward(request, response);
     }
-
-
 }

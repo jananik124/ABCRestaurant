@@ -9,6 +9,7 @@
     <title>ABC Restaurant - Contact Us</title>
     <style>
         body {
+            background: url('https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg') no-repeat center center/cover;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -43,7 +44,7 @@
             text-decoration: underline;
         }
         .hero {
-            background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
+            background: url('https://wallpapers.com/images/hd/pizza-background-h4hj80ccg7yfkrow.jpg') no-repeat center center/cover;
             color: #fff;
             text-align: center;
             padding: 100px 20px;
@@ -149,18 +150,19 @@
 
         <section class="contact-form">
             <h3>Send Us a Message</h3>
-            <form action="Contact.jsp" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <form action="Contact_Success.jsp" method="post">
+			    <label for="name">Name:</label>
+			    <input type="text" id="name" name="name" required>
+			
+			    <label for="email">Email:</label>
+			    <input type="email" id="email" name="email" required>
+			
+			    <label for="message">Message:</label>
+			    <textarea id="message" name="message" rows="5" required></textarea>
+			
+			    <button type="submit">Send Message</button>
+			</form>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
         </section>
     </div>
 

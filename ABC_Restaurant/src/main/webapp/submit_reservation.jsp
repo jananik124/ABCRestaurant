@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.restaurant.dao.ContactDAO" %>
+<%@ page import="com.restaurant.dao.ReservationDAO" %>
+<%@ page import="com.restaurant.model.ReservationModel" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Restaurant - Contact Us</title>
+    <title>ABC Restaurant - Reservation Confirmation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,28 +31,30 @@
     <div class="message">
         <%
             String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String message = request.getParameter("message");
+            String phone = request.getParameter("phone");
+            String date = request.getParameter("date");
+            String time = request.getParameter("time");
+            int guests = Integer.parseInt(request.getParameter("guests"));
+            String specialRequests = request.getParameter("special_requests");
 
-            if (name != null && email != null && message != null) {
-                ContactDAO contactDAO = new ContactDAO();
-                boolean isSaved = contactDAO.saveContactMessage(name, email, message);
+            if (name != null && phone != null && date != null && time != null) {
+                ReservationModel reservation = new ReservationModel(name, phone, date, time, guests, specialRequests);
+                ReservationDAO reservationDAO = new ReservationDAO();
+                boolean isSaved = reservationDAO.saveReservation(reservation);
 
                 if (isSaved) {
-                    out.println("<h1>Thank you for contacting us!</h1>");
-                    out.println("<p>We have received your message and will get back to you soon.</p>");
-                    out.println("<p><a href=\"Contact.jsp\">Go back to the contact page</a></p>");
+                    out.println("<h1>Reservation Confirmed!</h1>");
+                    out.println("<p>Your reservation has been successfully made. We look forward to serving you!</p>");
                 } else {
                     out.println("<h1>Oops!</h1>");
                     out.println("<p>Something went wrong. Please try again later.</p>");
-                    out.println("<p><a href=\"Contact.jsp\">Go back to the contact page</a></p>");
                 }
             } else {
                 out.println("<h1>Error</h1>");
                 out.println("<p>Required fields are missing.</p>");
-                out.println("<p><a href=\"Contact.jsp\">Go back to the contact page</a></p>");
             }
         %>
+        <p><a href="Reservation.jsp">Go back to the reservation page</a></p>
     </div>
 </body>
 </html>

@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +6,7 @@
     <title>ABC Restaurant - Cart</title>
     <style>
         body {
+            background: url('https://wallpapers.com/images/hd/pizza-background-h4hj80ccg7yfkrow.jpg') no-repeat center center/cover;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -120,13 +119,14 @@
         <div class="container">
             <div class="logo">ABC Restaurant</div>
             <nav>
-                <a href="index.html">Home</a>
-                <a href="orders.jsp">Order</a>
-                <a href="menu.html">Menu</a>
-                <a href="offers.html">Offers</a>
-                <a href="reservation.html">Reservation</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.jsp">Home</a>
+                <a href="Services.jsp">Services</a>
+                <a href="Offers.jsp">Offers</a>
+                <a href="Contact.jsp">Contact</a>
+                <a href="Menu.jsp">Order</a>
+                <a href="Reservation.jsp">Reservation</a>
+                <a href="Gallery.jsp">Gallery</a>
+                <a href="Cart.jsp">Cart (<span id="cart-count">0</span>)</a>
             </nav>
         </div>
     </header>
@@ -143,36 +143,66 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td><img src="https://via.placeholder.com/100x100" alt="Dish 1"> Dish 1</td>
-                    <td>$10.00</td>
-                    <td>2</td>
-                    <td>$20.00</td>
-                    <td><button class="remove-btn">Remove</button></td>
-                </tr>
-                <tr>
-                    <td><img src="https://via.placeholder.com/100x100" alt="Dish 2"> Dish 2</td>
-                    <td>$15.00</td>
-                    <td>1</td>
-                    <td>$15.00</td>
-                    <td><button class="remove-btn">Remove</button></td>
-                </tr>
-                <!-- Add more items as needed -->
+            <tbody id="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
             </tbody>
         </table>
 
         <div class="cart-summary">
             <h2>Cart Summary</h2>
-            <p><strong>Subtotal:</strong> $35.00</p>
-            <p><strong>Tax (5%):</strong> $1.75</p>
-            <p><strong>Total:</strong> $36.75</p>
-            <button type="button">Proceed to Checkout</button>
+            <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
+            <p><strong>Tax (5%):</strong> $<span id="tax">0.00</span></p>
+            <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+            
+            <!-- Updated button to redirect to ProceedToCheckout.jsp -->
+            <form action="ProceedToCheckout.jsp" method="get">
+                <button type="submit">Proceed to Checkout</button>
+            </form>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
     </footer>
+
+    <script>
+        function updateCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItems = document.getElementById('cart-items');
+            let subtotal = 0;
+
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                cartItems.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                        <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
+                    </tr>
+                `;
+            });
+
+            let tax = subtotal * 0.05;
+            let total = subtotal + tax;
+
+            document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+            document.getElementById('tax').innerText = tax.toFixed(2);
+            document.getElementById('total').innerText = total.toFixed(2);
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        window.onload = updateCart;
+    </script>
 </body>
 </html>
