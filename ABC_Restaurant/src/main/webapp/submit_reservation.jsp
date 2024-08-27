@@ -35,16 +35,18 @@
             String date = request.getParameter("date");
             String time = request.getParameter("time");
             int guests = Integer.parseInt(request.getParameter("guests"));
+            String diningOption = request.getParameter("dining_option");
             String specialRequests = request.getParameter("special_requests");
 
-            if (name != null && phone != null && date != null && time != null) {
-                ReservationModel reservation = new ReservationModel(name, phone, date, time, guests, specialRequests);
+            if (name != null && phone != null && date != null && time != null && diningOption != null) {
+                ReservationModel reservation = new ReservationModel(name, phone, date, time, guests, diningOption, specialRequests);
                 ReservationDAO reservationDAO = new ReservationDAO();
                 boolean isSaved = reservationDAO.saveReservation(reservation);
 
                 if (isSaved) {
                     out.println("<h1>Reservation Confirmed!</h1>");
                     out.println("<p>Your reservation has been successfully made. We look forward to serving you!</p>");
+                    out.println("<p>Dining Option: " + diningOption + "</p>");
                 } else {
                     out.println("<h1>Oops!</h1>");
                     out.println("<p>Something went wrong. Please try again later.</p>");

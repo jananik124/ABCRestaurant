@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="com.restaurant.dao.ContactDAO" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.testaurant.service.ContactService" %>
+<%@ page import="com.restaurant.model.ContactMODEL" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +23,13 @@
             width: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -33,9 +39,21 @@
             String email = request.getParameter("email");
             String message = request.getParameter("message");
 
-            if (name != null && email != null && message != null) {
-                ContactDAO contactDAO = new ContactDAO();
-                boolean isSaved = contactDAO.saveContactMessage(name, email, message);
+            if (name != null && !name.trim().isEmpty() &&
+                email != null && !email.trim().isEmpty() &&
+                message != null && !message.trim().isEmpty()) {
+
+                // Create an instance of ContactService
+                ContactService contactService = new ContactService();
+                
+                // Create a ContactMODEL object
+                ContactMODEL contact = new ContactMODEL();
+                contact.setName(name);
+                contact.setEmail(email);
+                contact.setMessage(message);
+
+                // Save the contact message
+                boolean isSaved = contactService.saveContact(contact);
 
                 if (isSaved) {
                     out.println("<h1>Thank you for contacting us!</h1>");
@@ -48,7 +66,7 @@
                 }
             } else {
                 out.println("<h1>Error</h1>");
-                out.println("<p>Required fields are missing.</p>");
+                out.println("<p>Required fields are missing or empty.</p>");
                 out.println("<p><a href=\"Contact.jsp\">Go back to the contact page</a></p>");
             }
         %>

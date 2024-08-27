@@ -155,7 +155,7 @@
             <p><strong>Total:</strong> $<span id="total">0.00</span></p>
             
             <!-- Updated button to redirect to ProceedToCheckout.jsp -->
-            <form action="ProceedToCheckout.jsp" method="get">
+            <form action="Login.jsp" method="get">
                 <button type="submit">Proceed to Checkout</button>
             </form>
         </div>

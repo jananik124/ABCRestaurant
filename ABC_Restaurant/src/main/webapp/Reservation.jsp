@@ -118,6 +118,12 @@
 
             <label for="guests">Number of Guests:</label>
             <input type="number" id="guests" name="guests" required>
+            
+            <label>Choose Dining Option:</label><br>
+            <input type="radio" id="delivery" name="dining_option" value="delivery">
+            <label for="delivery">Delivery</label><br>
+            <input type="radio" id="dine-in" name="dining_option" value="dine-in">
+            <label for="dine-in">Dine-In</label><br><br>
 
             <label for="special_requests">Special Requests:</label>
             <textarea id="special_requests" name="special_requests" rows="5"></textarea>
@@ -125,6 +131,8 @@
             <button type="submit">Reserve Table</button>
         </form>
     </div>
+
+
 
     <footer>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>

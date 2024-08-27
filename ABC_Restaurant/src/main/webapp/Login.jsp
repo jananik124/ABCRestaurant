@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +11,48 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header nav {
+            display: flex;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            padding: 80px 20px 20px;
+            margin: 0 auto;
+            max-width: 600px;
+            width: 100%;
         }
         h1 {
             text-align: center;
@@ -64,7 +94,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
+        <div class="container">
+            <div class="logo">ABC Restaurant</div>
+            <nav>
+                <a href="index.jsp">Home</a>
+                <a href="NewFile.jsp">Services</a>
+                <a href="offers.jsp">Offers</a>
+                <a href="contact.jsp">Contact</a>
+                <a href="Menu.jsp">Menu</a>
+                <a href="reservation.jsp">Reservation</a>
+                <a href="gallery.jsp">Gallery</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="section">
         <h1>Login</h1>
         <form id="loginForm" action="Login.jsp" method="post">
             <input type="text" id="email" name="email" placeholder="Email" required>
@@ -110,7 +155,7 @@
         if (user != null) {
             // Store user details in session
             session.setAttribute("user", user);
-            out.println("<script>alert('Login successful!');window.location.href='index.jsp';</script>");
+            out.println("<script>alert('Login successful!');window.location.href='ProceedToCheckout.jsp';</script>");
         } else {
             out.println("<script>alert('Invalid email or password!');</script>");
         }

@@ -1,27 +1,12 @@
 package com.restaurant.model;
 
 public class ContactMODEL {
-    private int id;         // Assuming 'id' is an auto-generated field in your database
+    private int id;
     private String name;
     private String email;
     private String message;
 
-    // Constructor with all fields
-    public ContactMODEL(int id, String name, String email, String message) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.message = message;
-    }
-
-    // Constructor without id (for insertion where id is auto-generated)
-    public ContactMODEL(String name, String email, String message) {
-        this.name = name;
-        this.email = email;
-        this.message = message;
-    }
-
-    // Getters and setters
+    // Getters and setters for all fields
     public int getId() {
         return id;
     }
