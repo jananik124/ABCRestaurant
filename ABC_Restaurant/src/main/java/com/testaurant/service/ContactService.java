@@ -5,17 +5,19 @@ import com.restaurant.model.ContactMODEL;
 import java.util.List;
 
 public class ContactService {
+
     private ContactDAO contactDAO;
 
     public ContactService() {
-        contactDAO = new ContactDAO();
+        this.contactDAO = new ContactDAO();
+    }
+
+    // This method should match the method in ContactDAO
+    public List<ContactMODEL> getAllContacts() {
+        return contactDAO.getAllContacts(); // Ensure this method exists in ContactDAO
     }
 
     public boolean saveContact(ContactMODEL contact) {
-        return contactDAO.saveContact(contact);
-    }
-
-    public List<ContactMODEL> listAllContacts() {
-        return contactDAO.getAllContacts(); // Ensure this method returns the list correctly
+        return contactDAO.saveContact(contact); // Ensure this method exists in ContactDAO
     }
 }

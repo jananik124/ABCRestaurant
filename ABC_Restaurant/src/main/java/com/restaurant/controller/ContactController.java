@@ -24,14 +24,12 @@ public class ContactController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Debugging output
         System.out.println("Received POST request");
 
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String message = request.getParameter("message");
 
-        // Debugging output
         System.out.println("Name: " + name);
         System.out.println("Email: " + email);
         System.out.println("Message: " + message);
@@ -61,7 +59,7 @@ public class ContactController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<ContactMODEL> contactList = contactService.listAllContacts();
+        List<ContactMODEL> contactList = contactService.getAllContacts();
         System.out.println("Contacts in controller: " + contactList.size());
         request.setAttribute("contactList", contactList);
         request.getRequestDispatcher("ContactView.jsp").forward(request, response);

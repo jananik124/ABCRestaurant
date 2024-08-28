@@ -72,28 +72,15 @@
             <a href="reports.jsp">Reports</a>
             <a href="logout.jsp">Logout</a>
         </div>
-        <div class="section">
-            <h2>Overview</h2>
-            <div class="box">
-                <p>Here is a summary of key metrics and important information.</p>
-                <!-- Add dashboard widgets or metrics here -->
-            </div>
-        </div>
-        <div class="section">
-            <h2>Recent Activity</h2>
-            <div class="box">
-                <p>Recent activities or updates can be displayed here.</p>
-                <!-- Add recent activities or updates here -->
-            </div>
-        </div>
+       
         <div class="section">
             <h2>Quick Links</h2>
             <div class="box">
-                <p>Quick access links or frequently used features can be placed here.</p>
+                <p></p>
                 <p><a href="ContactView.jsp">Contact</a></p>
                 <p><a href="ReservationView.jsp">Reservation</a></p>
                 <p><a href="UserView.jsp">User</a></p>
-                <p><a href="HomeView.jsp">Home</a></p>
+                <p><a href="OrderView.jsp">Order</a></p>
             </div>
         </div>
     </div>

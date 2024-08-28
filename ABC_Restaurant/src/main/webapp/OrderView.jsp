@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.testaurant.service.OrderService" %>
+<%@ page import="com.restaurant.model.OrderModel" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Restaurant - Payment Confirmation</title>
+    <title>ABC Restaurant - Order Details</title>
     <style>
         body {
             background: url('https://wallpapers.com/images/hd/pizza-background-h4hj80ccg7yfkrow.jpg') no-repeat center center/cover;
@@ -46,19 +49,22 @@
             margin: 0 auto;
             max-width: 1200px;
         }
-        .confirmation-message {
+        .order-table {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            text-align: center;
         }
-        .confirmation-message h1 {
-            margin: 0;
+        .order-table table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        .confirmation-message p {
-            font-size: 18px;
-            margin: 10px 0;
+        .order-table th, .order-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .order-table th {
+            background-color: #f4f4f4;
         }
         footer {
             background-color: #333;
@@ -86,16 +92,40 @@
     </header>
 
     <div class="section">
-        <div class="confirmation-message">
-            <h1>Payment Confirmation</h1>
-            <p>Thank you for your Order!</p>
-            <p>Your transaction has been successfully processed.</p>
-            <p><strong>Order Number:</strong> <%= request.getParameter("orderNumber") %></p>
-            <p><strong>Total Amount:</strong> $<%= request.getParameter("totalAmount") %></p>
-            <p><strong>Payment Method:</strong> <%= request.getParameter("paymentMethod") %></p>
-            <p><strong>Date and Time:</strong> <%= new java.util.Date() %></p>
-
-            <a href="index.jsp">Return to Home</a>
+        <div class="order-table">
+            <h1>Order Details</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Item Name</th>
+                        <th>Total Amount</th>
+                        <th>Customer Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Payment Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% 
+                        OrderService orderService = new OrderService();
+                        List<OrderModel> orders = orderService.getAllOrders();
+                        for (OrderModel order : orders) {
+                    %>
+                        <tr>
+                            <td><%= order.getId() %></td>
+                            <td><%= order.getItemName() %></td>
+                            <td>$<%= order.getTotalAmount() %></td>
+                            <td><%= order.getCustomerName() %></td>
+                            <td><%= order.getEmail() %></td>
+                            <td><%= order.getPhone() %></td>
+                            <td><%= order.getAddress() %></td>
+                            <td><%= order.getPaymentMethod() %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
     </div>
 

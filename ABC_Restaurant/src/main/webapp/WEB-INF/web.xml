@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>com.restaurant.controller.ContactController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ConfirmOrderServlet</servlet-name>
+  	<display-name>ConfirmOrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant.controller.ConfirmOrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>StaffLoginController</servlet-name>
+  	<display-name>StaffLoginController</display-name>
+  	<description></description>
+  	<servlet-class>com.restaurant.controller.StaffLoginController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ContactController</servlet-name>
   	<url-pattern>/ContactController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ConfirmOrderServlet</servlet-name>
+  	<url-pattern>/ConfirmOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StaffLoginController</servlet-name>
+  	<url-pattern>/StaffLoginController</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -184,9 +184,11 @@
             
         </div>
         <section class="search-bar">
-        <input type="text" placeholder="Search...">
-        <button type="button">Search</button>
-    </section>
+            <form action="Menu.jsp" method="get">
+                <input type="text" name="query" placeholder="Search..." value="${param.query}">
+                <button type="submit">Search</button>
+            </form>
+        </section>
     </header>
 
 

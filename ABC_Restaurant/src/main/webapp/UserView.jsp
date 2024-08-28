@@ -91,15 +91,16 @@
         <h1>User Dashboard</h1>
         <div class="user-info">
             <%
-                // Get the user object from the session
                 UserModel user = (UserModel) session.getAttribute("user");
 
                 if (user != null) {
+                    // Print debug information
+                    out.println("<p><strong>Session ID:</strong> " + session.getId() + "</p>");
+                    out.println("<p><strong>User Attribute:</strong> " + user + "</p>");
             %>
             <p><strong>Name:</strong> <%= user.getName() %></p>
             <p><strong>Email:</strong> <%= user.getEmail() %></p>
-            <p><strong>Membership Status:</strong> <%= user.getMembershipStatus() %></p>
-            <!-- Add more user details if needed -->
+            <!-- Removed membershipStatus line -->
             <%
                 } else {
                     out.println("<p>User not logged in.</p>");

@@ -29,17 +29,21 @@ public class ContactDAO {
 
     public List<ContactMODEL> getAllContacts() {
         List<ContactMODEL> contactList = new ArrayList<>();
-        String query = "SELECT * FROM contact_messages";
-        try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+        try (Connection conn = DBConnection.getConnection()) {
+            String sql = "SELECT * FROM contact_messages";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
             while (rs.next()) {
                 ContactMODEL contact = new ContactMODEL();
+                contact.setId(rs.getInt("id"));
                 contact.setName(rs.getString("name"));
                 contact.setEmail(rs.getString("email"));
                 contact.setMessage(rs.getString("message"));
                 contactList.add(contact);
             }
-        } catch (SQLException e) {
-            e.printStackTrace(); // Log the exception for debugging
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return contactList;
     }

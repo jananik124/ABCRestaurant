@@ -1,46 +1,97 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.restaurant.model.ContactMODEL" %>
+<%@ page import="com.testaurant.service.ContactService" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Response</title>
+    <title>ABC Restaurant - View Contact Messages</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            text-align: center;
         }
-        .message {
-            background-color: #fff;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 5px;
-            margin: 50px auto;
-            width: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .back-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="message">
-        <%
-            String successMessage = (String) request.getAttribute("successMessage");
-            String errorMessage = (String) request.getAttribute("errorMessage");
 
-            if (successMessage != null) {
-                out.println("<h1>" + successMessage + "</h1>");
-            } else if (errorMessage != null) {
-                out.println("<h1>" + errorMessage + "</h1>");
-            } else {
-                out.println("<h1>Error</h1>");
-                out.println("<p>Unexpected issue occurred.</p>");
-            }
-        %>
-        <p><a href="contact.jsp">Go back to the contact page</a></p>
+    <div class="container">
+        <h1>Contact Messages</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+            </tr>
+            <%
+                // Create an instance of ContactService
+                ContactService contactService = new ContactService();
+                
+                // Retrieve all contact messages
+                List<ContactMODEL> contactList = contactService.getAllContacts();
+
+                // Loop through each contact and display in the table
+                for (ContactMODEL contact : contactList) {
+            %>
+            <tr>
+                <td><%= contact.getName() %></td>
+                <td><%= contact.getEmail() %></td>
+                <td><%= contact.getMessage() %></td>
+            </tr>
+            <%
+                }
+            %>
+        </table>
+        <div class="back-link">
+            <a href="contact.jsp">Go back to the Contact Us page</a>
+        </div>
     </div>
+
 </body>
 </html>

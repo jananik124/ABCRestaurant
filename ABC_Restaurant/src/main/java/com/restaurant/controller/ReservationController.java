@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/Reservation")
 public class ReservationController extends HttpServlet {
@@ -33,6 +34,8 @@ public class ReservationController extends HttpServlet {
         boolean isSaved = reservationService.saveReservation(reservation);
 
         if (isSaved) {
+            List<ReservationModel> reservationList = reservationService.getAllReservations(); // Get all reservations from the database
+            request.setAttribute("reservationList", reservationList); // Set the list of reservations as a request attribute
             request.setAttribute("message", "Reservation Confirmed!");
             request.setAttribute("status", "success");
         } else {
@@ -40,12 +43,11 @@ public class ReservationController extends HttpServlet {
             request.setAttribute("status", "error");
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/ReservationView.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ReservationView.jsp");
         dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Implement retrieval of reservations if needed
         doPost(request, response);
     }
 }
