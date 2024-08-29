@@ -23,4 +23,9 @@ public class OrderService {
     public List<OrderModel> searchOrders(String query) {
         return orderDao.searchOrders(query);
     }
+    
+    public void setOrderDao(OrderDao orderDao) {
+        this.orderDao = orderDao;
+    }
+
 }

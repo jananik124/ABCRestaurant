@@ -14,12 +14,21 @@ import java.util.List;
 @WebServlet({"/Contact", "/ContactView"})
 public class ContactController extends HttpServlet {
 
-    private ContactService contactService;
+    protected ContactService contactService;
+
+    public ContactController() {
+        this.contactService = new ContactService(); // Default constructor for production
+    }
+
+    // Constructor for dependency injection (useful for testing)
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
+    }
 
     @Override
     public void init() throws ServletException {
         super.init();
-        contactService = new ContactService();
+        // No need to initialize contactService here if it's injected
     }
 
     @Override

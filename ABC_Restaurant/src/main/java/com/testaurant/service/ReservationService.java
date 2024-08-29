@@ -22,4 +22,9 @@ public class ReservationService {
     public List<ReservationModel> getAllReservations() {
         return reservationDAO.getAllReservations();
     }
+    
+    public void setReservationDAO(ReservationDAO reservationDAO) {
+        this.reservationDAO = reservationDAO;
+    }
+
 }

@@ -12,12 +12,20 @@ public class ContactService {
         this.contactDAO = new ContactDAO();
     }
 
-    // This method should match the method in ContactDAO
+    // Setter method for testing
+    public void setContactDAO(ContactDAO contactDAO) {
+        this.contactDAO = contactDAO;
+    }
+
     public List<ContactMODEL> getAllContacts() {
-        return contactDAO.getAllContacts(); // Ensure this method exists in ContactDAO
+        return contactDAO.getAllContacts();
     }
 
     public boolean saveContact(ContactMODEL contact) {
-        return contactDAO.saveContact(contact); // Ensure this method exists in ContactDAO
+        return contactDAO.saveContact(contact);
     }
 }
+
+    
+    
+
