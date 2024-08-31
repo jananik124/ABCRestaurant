@@ -13,6 +13,7 @@
             padding: 0;
             color: #333;
             background-color: #f4f4f4;
+            background: url('https://i.pinimg.com/564x/23/a7/e3/23a7e344aa4651fc1c3caa10667b6904.jpg') no-repeat center center/cover;
         }
         header {
             background-color: #333;
@@ -42,7 +43,7 @@
             text-decoration: underline;
         }
         .hero {
-            background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
+            background: url('https://i.pinimg.com/564x/ca/f0/b4/caf0b4810314710720ac1ff7c9c2c340.jpg') no-repeat center center/cover;
             color: #fff;
             text-align: center;
             padding: 100px 20px;
@@ -96,12 +97,11 @@
             <div class="logo">ABC Restaurant</div>
             <nav>
                 <a href="index.jsp">Home</a>
-                <a href="NewFile.jsp">Services</a>
-                <a href="offers.jsp">Offers</a>
-                <a href="contact.jsp">Contact</a>
+                <a href="Service.jsp">Services</a>
+                <a href="Contact.jsp">Contact</a>
                 <a href="Menu.jsp">Menu</a>
-                <a href="reservation.jsp">Reservation</a>
-                <a href="gallery.jsp">Gallery</a>
+                <a href="Reservation.jsp">Reservation</a>
+                <a href="Gallery.jsp">Gallery</a>
                
             </nav>
         </div>

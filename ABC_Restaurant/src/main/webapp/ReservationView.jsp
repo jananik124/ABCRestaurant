@@ -12,6 +12,7 @@
     <title>ABC Restaurant - Reservations</title>
     <style>
         body {
+       	    
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;

@@ -25,6 +25,10 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         .nav {
             display: flex;
@@ -43,21 +47,38 @@
         }
         .section {
             margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         .section h2 {
             margin-top: 0;
+            text-align: center;
         }
         .box {
             background-color: #f9f9f9;
             padding: 15px;
             border-radius: 4px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 50%; /* Adjust the width as needed */
+        }
+        .box a {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+            text-decoration: none;
         }
         .footer {
             text-align: center;
             padding: 10px;
             background-color: #333;
             color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -65,18 +86,11 @@
     <div class="header">
         <h1>Welcome to the Dashboard</h1>
     </div>
+   
     <div class="container">
-        <div class="nav">
-            <a href="profile.jsp">Profile</a>
-            <a href="settings.jsp">Settings</a>
-            <a href="reports.jsp">Reports</a>
-            <a href="logout.jsp">Logout</a>
-        </div>
-       
         <div class="section">
             <h2>Quick Links</h2>
             <div class="box">
-                <p></p>
                 <p><a href="ContactView.jsp">Contact</a></p>
                 <p><a href="ReservationView.jsp">Reservation</a></p>
                 <p><a href="UserView.jsp">User</a></p>
@@ -84,6 +98,7 @@
             </div>
         </div>
     </div>
+
     <div class="footer">
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
     </div>

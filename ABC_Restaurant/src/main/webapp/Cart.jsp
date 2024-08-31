@@ -120,11 +120,8 @@
             <div class="logo">ABC Restaurant</div>
             <nav>
                 <a href="index.jsp">Home</a>
-                <a href="Services.jsp">Services</a>
-                <a href="Offers.jsp">Offers</a>
                 <a href="Contact.jsp">Contact</a>
-                <a href="Menu.jsp">Order</a>
-                <a href="Reservation.jsp">Reservation</a>
+                <a href="Menu.jsp">Menu</a>
                 <a href="Gallery.jsp">Gallery</a>
                 <a href="Cart.jsp">Cart (<span id="cart-count">0</span>)</a>
             </nav>
@@ -150,11 +147,10 @@
 
         <div class="cart-summary">
             <h2>Cart Summary</h2>
-            <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
-            <p><strong>Tax (5%):</strong> $<span id="tax">0.00</span></p>
-            <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+            <p><strong>Subtotal:</strong> Rs<span id="subtotal">0.00</span></p>
+            <p><strong>Tax (5%):</strong> Rs<span id="tax">0.00</span></p>
+            <p><strong>Total:</strong> Rs<span id="total">0.00</span></p>
             
-            <!-- Updated button to redirect to ProceedToCheckout.jsp -->
             <form action="Login.jsp" method="get">
                 <button type="submit">Proceed to Checkout</button>
             </form>
@@ -178,9 +174,9 @@
                 cartItems.innerHTML += `
                     <tr>
                         <td>${item.name}</td>
-                        <td>$${item.price.toFixed(2)}</td>
+                        <td>Rs${item.price.toFixed(2)}</td>
                         <td>${item.quantity}</td>
-                        <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                        <td>Rs${(item.price * item.quantity).toFixed(2)}</td>
                         <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
                     </tr>
                 `;

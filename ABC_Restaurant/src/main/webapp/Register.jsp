@@ -8,6 +8,7 @@
     <title>ABC Restaurant - Register</title>
     <style>
         body {
+            background: url('https://i.pinimg.com/564x/07/82/8d/07828da7a7c28fe224c2cd5b0a52151b.jpg') no-repeat center center/cover;
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -59,6 +60,7 @@
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: white;
         }
         input[type="text"],
         input[type="email"],
@@ -88,7 +90,7 @@
             margin-top: 20px;
         }
         .login-link a {
-            color: #333;
+            color: white;
             text-decoration: none;
         }
         .login-link a:hover {

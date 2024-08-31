@@ -12,8 +12,8 @@
 		    margin: 0;
 		    padding: 0;
 		    color: #333;
-		    background-color: #f4f4f4;
-		    background: url('https://i.pinimg.com/564x/29/00/79/2900794fdcd3666e40cdaa75479397b0.jpg') no-repeat center center/cover;
+		    background-color: #5D6D7E;
+		    background: url('https://i.pinimg.com/564x/ee/39/84/ee3984dee152a317a489e2940cfa1063.jpg') no-repeat center center/cover;
 		}
 		
 		header {
@@ -228,7 +228,7 @@
 
         <section class="contact" id="contact">
             <h2>Contact Us</h2>
-            <form>
+            <form action="Contact_Success.jsp" method="post">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
                 <textarea rows="5" placeholder="Your Message" required></textarea>

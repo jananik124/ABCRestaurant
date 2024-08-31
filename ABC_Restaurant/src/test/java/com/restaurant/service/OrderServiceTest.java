@@ -107,4 +107,46 @@ public class OrderServiceTest {
         assertEquals(1, searchResults.size(), "There should be one order matching the search query.");
         assertEquals("Pizza", searchResults.get(0).getItemName(), "The item name should match the search query.");
     }
+
+    @Test
+    public void testCreateOrderWithNullFields() {
+        OrderModel order = new OrderModel();
+        order.setItemName(null); // Null item name
+        order.setTotalAmount(new BigDecimal("0.00"));
+        order.setCustomerName("Test User");
+        order.setEmail("test.user@example.com");
+        order.setPhone("9876543210");
+        order.setAddress("Unknown");
+        order.setPaymentMethod("Cash");
+
+        boolean isCreated = orderService.createOrder(order);
+        assertTrue(isCreated, "The order should be created successfully even with null item name.");
+    }
+
+    @Test
+    public void testSearchOrdersWithNoMatches() {
+        OrderModel order1 = new OrderModel();
+        order1.setItemName("Pizza");
+        order1.setTotalAmount(new BigDecimal("25.00"));
+        order1.setCustomerName("John Doe");
+        order1.setEmail("john.doe@example.com");
+
+        OrderModel order2 = new OrderModel();
+        order2.setItemName("Burger");
+        order2.setTotalAmount(new BigDecimal("15.00"));
+        order2.setCustomerName("Jane Doe");
+        order2.setEmail("jane.doe@example.com");
+
+        orderService.createOrder(order1);
+        orderService.createOrder(order2);
+
+        List<OrderModel> searchResults = orderService.searchOrders("Pasta");
+        assertEquals(0, searchResults.size(), "There should be no orders matching the search query 'Pasta'.");
+    }
+
+    @Test
+    public void testGetAllOrdersWhenNoOrdersExist() {
+        List<OrderModel> orders = orderService.getAllOrders();
+        assertEquals(0, orders.size(), "The list should be empty when there are no orders.");
+    }
 }

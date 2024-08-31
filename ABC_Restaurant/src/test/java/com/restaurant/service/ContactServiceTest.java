@@ -67,4 +67,47 @@ public class ContactServiceTest {
         List<ContactMODEL> contacts = contactService.getAllContacts();
         assertEquals(2, contacts.size(), "There should be two contacts saved.");
     }
+
+    
+    @Test
+    public void testSaveDuplicateContacts() {
+        ContactMODEL contact1 = new ContactMODEL();
+        contact1.setName("Duplicate Name");
+        contact1.setEmail("duplicate@example.com");
+        contact1.setMessage("First message.");
+
+        ContactMODEL contact2 = new ContactMODEL();
+        contact2.setName("Duplicate Name");
+        contact2.setEmail("duplicate@example.com");
+        contact2.setMessage("Duplicate message.");
+
+        boolean isSaved1 = contactService.saveContact(contact1);
+        boolean isSaved2 = contactService.saveContact(contact2);
+
+        assertTrue(isSaved1, "The first contact should be saved successfully.");
+        assertTrue(isSaved2, "The duplicate contact should be saved successfully.");
+    }
+
+    @Test
+    public void testGetContactsWhenEmpty() {
+        List<ContactMODEL> contacts = contactService.getAllContacts();
+        assertTrue(contacts.isEmpty(), "The contact list should be empty initially.");
+    }
+
+    @Test
+    public void testContactRetrievalAfterSave() {
+        ContactMODEL contact = new ContactMODEL();
+        contact.setName("Retrieved Name");
+        contact.setEmail("retrieved@example.com");
+        contact.setMessage("Retrieved message.");
+
+        contactService.saveContact(contact);
+        List<ContactMODEL> contacts = contactService.getAllContacts();
+
+        assertEquals(1, contacts.size(), "There should be one contact saved.");
+        ContactMODEL retrievedContact = contacts.get(0);
+        assertEquals("Retrieved Name", retrievedContact.getName(), "The name should match the saved contact.");
+        assertEquals("retrieved@example.com", retrievedContact.getEmail(), "The email should match the saved contact.");
+        assertEquals("Retrieved message.", retrievedContact.getMessage(), "The message should match the saved contact.");
+    }
 }

@@ -10,7 +10,6 @@
     <title>ABC Restaurant - Order Details</title>
     <style>
         body {
-            background: url('https://wallpapers.com/images/hd/pizza-background-h4hj80ccg7yfkrow.jpg') no-repeat center center/cover;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;

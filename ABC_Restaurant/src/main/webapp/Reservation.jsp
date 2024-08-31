@@ -13,6 +13,7 @@
             padding: 0;
             color: #333;
             background-color: #f4f4f4;
+            background: url('https://images.pexels.com/photos/1552635/pexels-photo-1552635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
         }
         header {
             background-color: #333;
@@ -91,12 +92,11 @@
             <div class="logo">ABC Restaurant</div>
             <nav>
                 <a href="index.jsp">Home</a>
-                <a href="NewFile.jsp">Services</a>
-                <a href="offers.jsp">Offers</a>
-                <a href="contact.jsp">Contact</a>
-                <a href="Menu.jsp">Order</a>
-                <a href="reservation.jsp">Reservation</a>
-                <a href="gallery.jsp">Gallery</a>
+                <a href="Services.jsp">Services</a>
+                <a href="Offers.jsp">Offers</a>
+                <a href="Contact.jsp">Contact</a>
+                <a href="Menu.jsp">Menu</a>
+                <a href="Gallery.jsp">Gallery</a>
             </nav>
         </div>
     </header>

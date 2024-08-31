@@ -9,7 +9,7 @@
     <title>ABC Restaurant - Contact Us</title>
     <style>
         body {
-            background: url('https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg') no-repeat center center/cover;
+            background: url('https://i.pinimg.com/564x/f7/a9/42/f7a942453e6e6cb4fa3c4ce511964264.jpg') no-repeat center center/cover;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -122,12 +122,11 @@
             <div class="logo">ABC Restaurant</div>
             <nav>
                 <a href="index.jsp">Home</a>
-                <a href="NewFile.jsp">Services</a>
-                <a href="offers.jsp">Offers</a>
-                <a href="contact.jsp">Contact</a>
+                <a href="Service.jsp">Services</a>
+                <a href="Offers.jsp">Offers</a>
                 <a href="Menu.jsp">Menu</a>
-                <a href="reservation.jsp">Reservation</a>
-                <a href="gallery.jsp">Gallery</a>
+                <a href="Reservation.jsp">Reservation</a>
+                <a href="Gallery.jsp">Gallery</a>
                 
             </nav>
         </div>
@@ -144,8 +143,8 @@
         <section class="contact-info">
             <h2>Contact Information</h2>
             <p><strong>Address:</strong> 123 Restaurant Street, Colombo, Sri Lanka</p>
-            <p><strong>Phone:</strong> +94 123 456 789</p>
-            <p><strong>Email:</strong> info@abcrestaurant.lk</p>
+            <p><strong>Phone:</strong> +94 713 456 789</p>
+            <p><strong>Email:</strong> abcrestaurant@gmail.lk</p>
         </section>
 
         <section class="contact-form">

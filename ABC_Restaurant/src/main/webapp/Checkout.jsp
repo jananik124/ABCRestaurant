@@ -74,11 +74,8 @@
             <div class="logo">ABC Restaurant</div>
             <nav>
                 <a href="index.jsp">Home</a>
-                <a href="Services.jsp">Services</a>
-                <a href="Offers.jsp">Offers</a>
                 <a href="Contact.jsp">Contact</a>
                 <a href="Menu.jsp">Order</a>
-                <a href="Reservation.jsp">Reservation</a>
                 <a href="Gallery.jsp">Gallery</a>
                 <a href="Cart.jsp">Cart (<span id="cart-count">0</span>)</a>
             </nav>
@@ -91,7 +88,7 @@
             <p>Thank you for your Order!</p>
             <p>Your transaction has been successfully processed.</p>
             <p><strong>Order Number:</strong> <%= request.getParameter("orderNumber") %></p>
-            <p><strong>Total Amount:</strong> $<%= request.getParameter("totalAmount") %></p>
+            <p><strong>Total Amount:</strong> Rs<%= request.getParameter("totalAmount") %></p>
             <p><strong>Payment Method:</strong> <%= request.getParameter("paymentMethod") %></p>
             <p><strong>Date and Time:</strong> <%= new java.util.Date() %></p>
 

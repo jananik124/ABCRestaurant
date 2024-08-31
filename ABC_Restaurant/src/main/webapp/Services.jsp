@@ -13,6 +13,7 @@
             padding: 0;
             color: #333;
             background-color: #f4f4f4;
+            background: url('https://i.pinimg.com/564x/48/b2/5e/48b25e2e0dcf608d75b1218f465aa4b0.jpg') no-repeat center center/cover;
         }
         header {
             background-color: #333;
@@ -42,7 +43,7 @@
             text-decoration: underline;
         }
         .hero {
-            background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
+            background: url('https://i.pinimg.com/564x/4c/eb/c1/4cebc1989a6010198e76395e8ff0d7af.jpg') no-repeat center center/cover;
             color: #fff;
             text-align: center;
             padding: 100px 20px;
@@ -103,12 +104,11 @@
             <div class="logo">ABC Restaurant</div>
             <nav>
                 <a href="index.jsp">Home</a>
-                <a href="Services.jsp">Services</a>
-                <a href="offers.jsp">Offers</a>
-                <a href="contact.jsp">Contact</a>
+                <a href="Offers.jsp">Offers</a>
+                <a href="Contact.jsp">Contact</a>
                 <a href="Menu.jsp">Menu</a>
-                <a href="reservation.jsp">Reservation</a>
-                <a href="gallery.jsp">Gallery</a>
+                <a href="Reservation.jsp">Reservation</a>
+                <a href="Gallery.jsp">Gallery</a>
                 
             </nav>
         </div>
@@ -125,28 +125,28 @@
         <section class="services" id="services">
             <h2>Our Services</h2>
             <div class="service-item">
-                <img src="https://via.placeholder.com/150" alt="Fine Dining">
+                <img src="https://i.pinimg.com/564x/84/ea/c2/84eac2e2d18fa481689a0acfce7b70ac.jpg" alt="Fine Dining">
                 <div>
                     <h3>Fine Dining</h3>
                     <p>Experience gourmet dishes prepared by our top chefs. Our fine dining service offers a luxurious atmosphere and exceptional cuisine.</p>
                 </div>
             </div>
             <div class="service-item">
-                <img src="https://via.placeholder.com/150" alt="Event Hosting">
+                <img src="https://i.pinimg.com/564x/de/0f/81/de0f81f1897aef3753268633f0021233.jpg" alt="Event Hosting">
                 <div>
                     <h3>Event Hosting</h3>
                     <p>Host your special events in our elegant banquet halls. We provide personalized service to ensure your event is memorable and successful.</p>
                 </div>
             </div>
             <div class="service-item">
-                <img src="https://via.placeholder.com/150" alt="Delivery Service">
+                <img src="https://i.pinimg.com/564x/e8/af/a8/e8afa8c981a904dc1f89e380c0242eba.jpg" alt="Delivery Service">
                 <div>
                     <h3>Delivery Service</h3>
                     <p>Enjoy our delicious meals from the comfort of your home with our fast and reliable delivery service. We ensure your order arrives fresh and on time.</p>
                 </div>
             </div>
             <div class="service-item">
-                <img src="https://via.placeholder.com/150" alt="Catering">
+                <img src="https://i.pinimg.com/564x/02/35/41/023541c58708c0651331c5d7a25c6680.jpg" alt="Catering">
                 <div>
                     <h3>Catering</h3>
                     <p>Let us cater your next event with a wide range of menu options. Our catering service is perfect for corporate events, weddings, and private parties.</p>

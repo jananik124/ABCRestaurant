@@ -6,6 +6,7 @@
     <title>ABC Restaurant - Login</title>
     <style>
         body {
+            background: url('https://i.pinimg.com/564x/07/82/8d/07828da7a7c28fe224c2cd5b0a52151b.jpg') no-repeat center center/cover;
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -57,6 +58,7 @@
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: white;
         }
         input[type="text"],
         input[type="password"] {
@@ -85,7 +87,7 @@
             margin-top: 20px;
         }
         .register-link a {
-            color: #333;
+            color: white;
             text-decoration: none;
         }
         .register-link a:hover {
