@@ -18,6 +18,13 @@
             padding: 10px;
             text-align: center;
         }
+        .logo img {
+            width: 150px;
+            height: 150px; /* Ensure the height is equal to the width for a perfect circle */
+            border-radius: 50%; /* This makes the image round */
+            margin-bottom: 5px;
+            object-fit: cover; /* Ensures the image covers the entire area */
+        }
         .container {
             width: 90%;
             margin: 20px auto;
@@ -83,8 +90,16 @@
     </style>
 </head>
 <body>
+    <%
+        Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        if (loggedIn == null || !loggedIn) {
+            response.sendRedirect("AdminLogin.jsp");
+            return;
+        }
+    %>
     <div class="header">
         <h1>Welcome to the Dashboard</h1>
+        <div class="logo"><img src="Images/ABCLOGO.png" alt="ABC Restaurant"></div>
     </div>
    
     <div class="container">

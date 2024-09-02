@@ -77,16 +77,7 @@
     <header>
         <div class="container">
             <div class="logo">ABC Restaurant</div>
-            <nav>
-                <a href="index.jsp">Home</a>
-                <a href="Services.jsp">Services</a>
-                <a href="Offers.jsp">Offers</a>
-                <a href="Contact.jsp">Contact</a>
-                <a href="Menu.jsp">Order</a>
-                <a href="Reservation.jsp">Reservation</a>
-                <a href="Gallery.jsp">Gallery</a>
-                <a href="Cart.jsp">Cart (<span id="cart-count">0</span>)</a>
-            </nav>
+            
         </div>
     </header>
 

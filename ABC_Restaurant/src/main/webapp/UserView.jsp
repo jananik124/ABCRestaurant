@@ -75,15 +75,7 @@
     <header>
         <div class="container">
             <div class="logo">ABC Restaurant</div>
-            <nav>
-                <a href="index.jsp">Home</a>
-                <a href="NewFile.jsp">Services</a>
-                <a href="offers.jsp">Offers</a>
-                <a href="contact.jsp">Contact</a>
-                <a href="Menu.jsp">Menu</a>
-                <a href="reservation.jsp">Reservation</a>
-                <a href="gallery.jsp">Gallery</a>
-            </nav>
+            
         </div>
     </header>
 

@@ -33,10 +33,13 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+       header .logo img {
+        width: 100px;
+        height: 100px; /* Ensure the height is equal to the width for a perfect circle */
+        border-radius: 50%; /* This makes the image round */
+        margin-bottom: 5px;
+        object-fit: cover; /* Ensures the image covers the entire area */
+    }
         header nav {
             display: flex;
         }
@@ -98,7 +101,7 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">ABC Restaurant</div>
+            <div class="logo"><img src="Images/ABCLOGO.png" alt="ABC Restaurant"></div>
             <nav>
                 <a href="index.jsp">Home</a>
                 <a href="NewFile.jsp">Services</a>

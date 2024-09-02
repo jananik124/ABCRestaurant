@@ -1,18 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Proceed to Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Restaurant - Proceed to Checkout</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            color: #333;
+             background: url('https://i.pinimg.com/564x/ee/39/84/ee3984dee152a317a489e2940cfa1063.jpg') no-repeat center center/cover;
         }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        header .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 40%;
+            margin-bottom: 5px;
+            object-fit: cover;
+        }
+        
         .container {
             width: 80%;
             max-width: 900px;
@@ -45,9 +68,6 @@
         .form-group input[readonly] {
             background-color: #f9f9f9;
         }
-        .form-control {
-            margin-bottom: 10px;
-        }
         .btn-primary {
             background-color: #007bff;
             color: #fff;
@@ -59,9 +79,25 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo"><img src="Images/ABCLOGO.png" alt="ABC Restaurant"></div>
+            </div>
+            
+        </div>
+    </header>
+
     <div class="container">
         <h1>Checkout</h1>
         <form action="Checkout.jsp" method="post">
@@ -126,5 +162,8 @@
             updateCheckoutTotal();
         };
     </script>
+     <footer>
+        <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
+    </footer>
 </body>
 </html>
