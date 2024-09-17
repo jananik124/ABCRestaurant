@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.restaurant.dao.UserDao" %>
+<%@ page import="com.restaurant.model.UserModel" %>
+<%@ page import="javax.mail.*" %>
+<%@ page import="javax.mail.internet.*" %>
+<%@ page import="java.util.Properties" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +41,12 @@
             margin: 0 auto;
         }
         header .logo img {
-        width: 100px;
-        height: 100px; /* Ensure the height is equal to the width for a perfect circle */
-        border-radius: 50%; /* This makes the image round */
-        margin-bottom: 5px;
-        object-fit: cover; /* Ensures the image covers the entire area */
-    }
+            width: 100px;
+            height: 100px; /* Ensure the height is equal to the width for a perfect circle */
+            border-radius: 50%; /* This makes the image round */
+            margin-bottom: 5px;
+            object-fit: cover; /* Ensures the image covers the entire area */
+        }
         header nav {
             display: flex;
         }
@@ -103,21 +108,21 @@
 </head>
 <body>
 
-	<header>
-	        <div class="container">
-	            <div class="logo"><img src="Images/ABCLOGO.png" alt="ABC Restaurant"></div>
-	            <nav>
-	                <a href="index.jsp">Home</a>
-	                <a href="NewFile.jsp">Services</a>
-	                <a href="offers.jsp">Offers</a>
-	                <a href="contact.jsp">Contact</a>
-	                <a href="Menu.jsp">Menu</a>
-	                <a href="reservation.jsp">Reservation</a>
-	                <a href="gallery.jsp">Gallery</a>
-	            </nav>
-	        </div>
-	    </header>
-	    
+    <header>
+        <div class="container">
+            <div class="logo"><img src="Images/ABCLOGO.png" alt="ABC Restaurant"></div>
+            <nav>
+                <a href="index.jsp">Home</a>
+                <a href="NewFile.jsp">Services</a>
+                <a href="offers.jsp">Offers</a>
+                <a href="contact.jsp">Contact</a>
+                <a href="Menu.jsp">Menu</a>
+                <a href="reservation.jsp">Reservation</a>
+                <a href="gallery.jsp">Gallery</a>
+            </nav>
+        </div>
+    </header>
+    
     <div class="section">
         <h1>Register</h1>
         <form id="registerForm" action="Register.jsp" method="post">
@@ -131,33 +136,67 @@
             <p>Already have an account? <a href="Login.jsp">Login here</a>.</p>
         </div>
     </div>
-</body>
-</html>
 
-<%@ page import="com.restaurant.dao.UserDao" %>
-<%@ page import="com.restaurant.model.UserModel" %>
+    <%
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String confirmPassword = request.getParameter("confirmPassword");
 
-<%
-    String name = request.getParameter("name");
-    String email = request.getParameter("email");
-    String password = request.getParameter("password");
-    String confirmPassword = request.getParameter("confirmPassword");
-
-    if (name != null && email != null && password != null && confirmPassword != null) {
-        if (!password.equals(confirmPassword)) {
-            out.println("<script>alert('Passwords do not match!');window.location.href='Register.jsp';</script>");
-        } else {
-            UserModel user = new UserModel();
-            user.setName(name);
-            user.setEmail(email);
-            user.setPassword(password);
-
-            UserDao userDAO = new UserDao();
-            if (userDAO.registerUser(user)) {
-                out.println("<script>alert('Registration successful!');window.location.href='Login.jsp';</script>");
+        if (name != null && email != null && password != null && confirmPassword != null) {
+            if (!password.equals(confirmPassword)) {
+                out.println("<script>alert('Passwords do not match!');window.location.href='Register.jsp';</script>");
             } else {
-                out.println("<script>alert('Registration failed! Please try again.');window.location.href='Register.jsp';</script>");
+                UserModel user = new UserModel();
+                user.setName(name);
+                user.setEmail(email);
+                user.setPassword(password);
+
+                UserDao userDAO = new UserDao();
+                boolean isRegistered = userDAO.registerUser(user);
+
+                if (isRegistered) {
+                    // Sending email to the user who just registered
+                    String host = "smtp.gmail.com";
+                    final String username = "jananikodithuwakku124@gmail.com"; // Replace with your email
+                    final String passwordEmail = "ljoy pruu sczs airc"; // Replace with your app-specific password
+
+                    String to = email; // Email of the registered user
+                    String subject = "Welcome to ABC Restaurant!";
+                    String body = "Dear " + name + ",\n\nThank you for registering at ABC Restaurant.\n\nBest regards,\nABC Restaurant Team";
+
+                    Properties props = new Properties();
+                    props.put("mail.smtp.auth", "true");
+                    props.put("mail.smtp.starttls.enable", "true");
+                    props.put("mail.smtp.host", host);
+                    props.put("mail.smtp.port", "587");
+
+                    Session emailSession = Session.getInstance(props,
+                        new javax.mail.Authenticator() {
+                            protected PasswordAuthentication getPasswordAuthentication() {
+                                return new PasswordAuthentication(username, passwordEmail);
+                            }
+                        });
+
+                    try {
+                        Message message = new MimeMessage(emailSession);
+                        message.setFrom(new InternetAddress(username));
+                        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to)); // Send email to registered user
+                        message.setSubject(subject);
+                        message.setText(body);
+
+                        Transport.send(message);
+
+                        out.println("<script>alert('Registration successful! A confirmation email has been sent to " + to + ".');window.location.href='Login.jsp';</script>");
+                    } catch (MessagingException e) {
+                        out.println("<script>alert('Registration successful but email could not be sent.');window.location.href='Login.jsp';</script>");
+                        e.printStackTrace();
+                    }
+                } else {
+                    out.println("<script>alert('Registration failed! Please try again.');window.location.href='Register.jsp';</script>");
+                }
             }
         }
-    }
-%>
+    %>
+</body>
+</html>

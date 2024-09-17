@@ -12,8 +12,8 @@ public class UserAuthenticationTest {
     @Test
     public void testUserRegistration() {
         UserModel user = new UserModel();
-        user.setName("sam");
-        user.setEmail("sam@gmail.com");
+        user.setName("smal");
+        user.setEmail("smal@gmail.com");
         user.setPassword("123");
         boolean isRegistered = userService.registerUser(user);
         assertTrue(isRegistered);

@@ -12,7 +12,6 @@ public class OrderModel {
     private String phone;
     private String address;
     private String paymentMethod;
-    
 
     // Getters and setters for all fields
 
@@ -79,6 +78,4 @@ public class OrderModel {
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
-    
-    
 }

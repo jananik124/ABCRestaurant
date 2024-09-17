@@ -106,7 +106,7 @@
                         <tr>
                             <td><%= order.getId() %></td>
                             <td><%= order.getItemName() %></td>
-                            <td>$<%= order.getTotalAmount() %></td>
+                            <td>Rs<%= order.getTotalAmount() %></td>
                             <td><%= order.getCustomerName() %></td>
                             <td><%= order.getEmail() %></td>
                             <td><%= order.getPhone() %></td>

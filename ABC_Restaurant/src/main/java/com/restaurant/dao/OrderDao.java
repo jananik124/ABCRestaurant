@@ -1,7 +1,6 @@
 package com.restaurant.dao;
 
 import com.restaurant.model.OrderModel;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,8 +28,10 @@ public class OrderDao {
             statement.setString(7, order.getPaymentMethod());
 
             int rowsInserted = statement.executeUpdate();
+            System.out.println("Rows inserted: " + rowsInserted); // Log the result
             return rowsInserted > 0;
         } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage()); // Log the exception
             e.printStackTrace();
         }
         return false;
@@ -56,18 +57,20 @@ public class OrderDao {
                 orders.add(order);
             }
         } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage()); // Log the exception
             e.printStackTrace();
         }
         return orders;
     }
-    
+
     public List<OrderModel> searchOrders(String query) {
         List<OrderModel> orders = new ArrayList<>();
-        String sql = "SELECT * FROM orders WHERE item_name LIKE ? OR customer_name LIKE ?";
+        String sql = "SELECT * FROM orders WHERE item_name LIKE ? OR customer_name LIKE ? OR email LIKE ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             String searchQuery = "%" + query + "%";
             statement.setString(1, searchQuery);
             statement.setString(2, searchQuery);
+            statement.setString(3, searchQuery);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     OrderModel order = new OrderModel();
@@ -83,6 +86,7 @@ public class OrderDao {
                 }
             }
         } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage()); // Log the exception
             e.printStackTrace();
         }
         return orders;

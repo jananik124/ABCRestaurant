@@ -72,8 +72,8 @@ public class ContactServiceTest {
     @Test
     public void testSaveDuplicateContacts() {
         ContactMODEL contact1 = new ContactMODEL();
-        contact1.setName("Duplicate Name");
-        contact1.setEmail("duplicate@example.com");
+        contact1.setName("Harsha");
+        contact1.setEmail("harsga@gmail.com");
         contact1.setMessage("First message.");
 
         ContactMODEL contact2 = new ContactMODEL();

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@
             margin: 0;
             padding: 0;
             color: #333;
-             background: url('https://i.pinimg.com/564x/ee/39/84/ee3984dee152a317a489e2940cfa1063.jpg') no-repeat center center/cover;
+            background: url('https://i.pinimg.com/564x/ee/39/84/ee3984dee152a317a489e2940cfa1063.jpg') no-repeat center center/cover;
         }
         header {
             background-color: #333;
@@ -35,7 +34,6 @@
             margin-bottom: 5px;
             object-fit: cover;
         }
-        
         .container {
             width: 80%;
             max-width: 900px;
@@ -92,15 +90,14 @@
     <header>
         <div class="container">
             <div class="logo">
-                <div class="logo"><img src="Images/ABCLOGO.png" alt="ABC Restaurant"></div>
+                <img src="Images/ABCLOGO.png" alt="ABC Restaurant">
             </div>
-            
         </div>
     </header>
 
     <div class="container">
         <h1>Checkout</h1>
-        <form action="Checkout.jsp" method="post">
+        <form action="OrderController" method="post">
             <!-- Item Name -->
             <div class="form-group">
                 <label for="itemName">Item Name:</label>
@@ -162,7 +159,8 @@
             updateCheckoutTotal();
         };
     </script>
-     <footer>
+
+    <footer>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
     </footer>
 </body>
